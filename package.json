@@ -6,8 +6,8 @@
         "nodemon": "^2.0.7"
     },
     "scripts": {
-        "build": "./build.sh",
-        "dev": "nodemon -e tid,multids,js,info --watch src/ --exec ./dev.sh"
+        "build": "./scripts/build.sh",
+        "dev": "nodemon -e tid,multids,js,info --watch src/ --exec ./scripts/dev.sh"
     },
     "author": "Brock Dyer <bld4524@rit.edu>",
     "license": "MIT",
