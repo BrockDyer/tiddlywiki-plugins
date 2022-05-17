@@ -1,0 +1,22 @@
+{
+    "name": "tw-kingdoms-and-warfare",
+    "version": "0.0.1",
+    "description": "TW5 plugin for K&W content",
+    "devDependencies": {
+        "nodemon": "^2.0.7"
+    },
+    "scripts": {
+        "build": "./build.sh",
+        "dev": "nodemon -e tid,multids,js,info --watch src/ --exec ./dev.sh"
+    },
+    "author": "Brock Dyer <bld4524@rit.edu>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:BrockDyer/tiddlywiki-plugins.git"
+    },
+    "bugs": {
+        "url": "https://github.com/BrockDyer/tiddlywiki-plugins/issues"
+    },
+    "homepage": "https://brockdyer.github.io/tiddlywiki-plugins/"
+}
