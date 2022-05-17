@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/brockdyer/tw-kingdoms-and-warfare/modules/macros/prefix.js
+title: $:/plugins/brockdyer/kingdoms-and-warfare/modules/macros/prefix.js
 type: application/javascript
 module-type: macro
 

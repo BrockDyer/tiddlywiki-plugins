@@ -1,10 +1,10 @@
 {
-    "title": "$:/plugins/brockdyer/tw-kingdoms-and-warfare",
+    "title": "$:/plugins/brockdyer/kingdoms-and-warfare",
     "description": "Templates and themes for content in the book Kingdoms and Warfare by MCDM Productions",
     "author": "Brock Dyer",
     "version": "0.0.1",
     "core-version": ">=5.2.2",
-    "source": "https://github.com/BrockDyer/tiddlywiki-kingdoms-and-warfare",
+    "source": "https://github.com/BrockDyer/tiddlywiki-plugins",
     "list": "readme license",
     "plugin-type": "plugin"
 }

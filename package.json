@@ -7,6 +7,9 @@
     },
     "scripts": {
         "build": "./scripts/build.sh",
+        "patch": "./scripts/publish.sh patch",
+        "minor": "./scripts/publish.sh minor",
+        "publish": "./scripts/publish.sh major",
         "dev": "nodemon -e tid,multids,js,info --watch src/ --exec ./scripts/dev.sh"
     },
     "author": "Brock Dyer <bld4524@rit.edu>",
