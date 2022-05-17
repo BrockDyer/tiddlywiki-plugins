@@ -134,3 +134,6 @@ package-lock.json
 
 # Ignore DS_Store
 *.DS_Store
+
+# Build
+.build
