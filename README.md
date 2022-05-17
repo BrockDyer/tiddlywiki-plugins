@@ -1,2 +1,2 @@
-# tiddlywiki-kingdoms-and-warfare
-A TiddlyWiki plugin for creating content from the book Kingdoms and Warfare by MCDM Productions.
+# tiddlywiki-plugins
+A collection of plugins (often focused on D&D campaign management)
