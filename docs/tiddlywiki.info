@@ -11,7 +11,7 @@
     ],
     "build": {
         "index": [
-            "--output", "doc/",
+            "--output", "docs/",
             "--rendertiddler",
             "$:/plugins/tiddlywiki/tiddlyweb/save/offline",
             "index.html",

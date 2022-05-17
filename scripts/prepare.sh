@@ -2,7 +2,7 @@
 
 build="$1"
 src="src"
-doc="doc"
+doc="docs"
 plugins="$build/plugins"
 
 # Setup build directory if not setup.
