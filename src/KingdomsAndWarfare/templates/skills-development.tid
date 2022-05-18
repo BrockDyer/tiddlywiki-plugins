@@ -1,0 +1,7 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/templates/skills-development
+max-dev-points: 9
+development-type: skills
+hidden-indices: 5 7 8
+value-tiddler: $:/plugins/brockdyer/kingdoms-and-warfare/files/DevelopmentPoints/skills
+
+{{||$:/plugins/brockdyer/kingdoms-and-warfare/templates/development-points}}

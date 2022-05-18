@@ -1,0 +1,46 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/Modals/edit-organization
+subtitle: <<kw.lookup ui/Modals/EditOrganization>>
+
+<$set name="prefix" value=<<kw.plugin-prefix>> >
+<$list variable="type" filter="skills defenses" >
+    <table>
+        <tr>
+            <$list variable="name" filter="[<prefix>addsuffix[files/skills-and-defenses]getindex<type>enlist-input[]]" >
+                <th>
+                    <$set name="display" filter="[<name>titlecase[]]" >
+                        <<display>>
+                    </$set>
+                </th>
+                <td>
+                    <$set name="field" filter="[<name>addprefix[kw.org.base-]]" >
+                    <$set name="dict" filter="[<prefix>addsuffix[files/DevelopmentPoints/]addsuffix<type>]" >
+                        <$select tiddler=<<organization>> field=<<field>> >
+                            <$list variable="index" filter="[<dict>getindex[unique-indices]enlist-input[]]" >
+                                <$set name="value" filter="[<dict>getindex<index>]" >
+                                    <option value=<<index>> ><<value>></option>
+                                </$set>
+                            </$list>
+                        </$select>
+                    </$set>
+                    </$set>
+                </td>
+            </$list>
+        </tr>
+    </table>
+</$list>
+</$set>
+
+<table>
+    <tr>
+        <th>Edit Powers</th>
+        <td>
+            <$edit-text tiddler=<<organization>> field="kw.org.powers" />
+        </td>
+    </tr>
+    <tr>
+        <th>Edit Features</th>
+        <td>
+            <$edit-text tiddler=<<organization>> field="kw.org.features" />
+        </td>
+    </tr>
+</table>

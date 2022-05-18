@@ -1,0 +1,17 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/templates/specialization-tab-transclusion
+
+\define through-template(tiddler, template)
+    {{$tiddler$||$template$}}
+\end
+
+<$tiddler tiddler=<<currentTab>>>
+    <$list filter="[<currentTab>is[missing]]" >
+        <$link to=<<currentTab>> />
+    </$list>
+
+    <$list filter="[<kw.template>!is[blank]]" emptyMessage="""<$transclude mode="block" />""" >
+        <blockquote class="tc-blockquote" >
+            <$macrocall $name="through-template" tiddler=<<currentTab>> template=<<kw.template>> />
+        </blockquote>
+    </$list>
+</$tiddler>

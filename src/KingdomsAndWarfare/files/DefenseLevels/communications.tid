@@ -1,0 +1,10 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/files/DefenseLevels/communications
+type: application/x-tiddler-dictionary
+
+3: Unbreakable
+2: Coded
+1: Secure
+0: Normal
+-1: Compromised
+-2: Garbled
+-3: Broken

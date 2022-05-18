@@ -1,0 +1,21 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/SideBar/factories
+tags: $:/tags/SideBar
+list-before: $:/core/ui/SideBar/More
+caption: K&W
+
+<!-- <<tabs
+    tabsList: "[all[shadows]tag[$:/plugins/brockdyer/kingdoms-and-warfare/ui/SideBar/factories]]"
+    default: "$:/plugins/brockdyer/kingdoms-and-warfare/ui/Buttons/new-organization"
+    class: "tc-vertical" >> -->
+
+<$set name="tv-config-toolbar-icons" value="yes">
+<$set name="tv-config-toolbar-text" value="yes">
+<$set name="tv-config-toolbar-class" value="">
+
+    <$list filter="[all[shadows]tag<kw.plugin-prefix ui/SideBar/factories>]" >
+        <$transclude tiddler=<<currentTiddler>> />
+    </$list>
+
+</$set>
+</$set>
+</$set>

@@ -1,0 +1,27 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/templates/party-officer
+
+\define resource-button(field, display)
+    <$set name="display" filter="[<partySheet>contains:$field$<officer>] :map[[x]] ~[[$display$]]" >
+    <$button>
+        <$action-listops $tiddler=<<partySheet>> $field="$field$" $subfilter="[<officer>]" />
+        <<display>>
+    </$button>
+    </$set>
+\end
+
+<h3>Officer Resources</h3>
+<$button>
+    <$action-listops $tiddler=<<partySheet>> $field="kw.ps.officers.power-dice" $filter="[[]]" />
+    Extended Rest
+</$button>
+<div class="officer-resources">
+    <$set name="partySheet" value=<<currentTiddler>> >
+        <$list filter="[list[!!kw.ps.officers]]" variable="officer" >
+            <div>
+                <<officer>>
+                <<resource-button field:"kw.ps.officers.reactions" display:"R">>
+                <<resource-button field:"kw.ps.officers.power-dice" display:"P">>
+            </div>
+        </$list>
+    </$set>
+</div>

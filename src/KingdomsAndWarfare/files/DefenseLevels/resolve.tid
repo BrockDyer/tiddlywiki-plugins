@@ -1,0 +1,10 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/files/DefenseLevels/resolve
+type: application/x-tiddler-dictionary
+
+3: Zealous
+2: Fanatic
+1: Loyal
+0: Normal
+-1: Discontented
+-2: Rebellious
+-3: Revolt

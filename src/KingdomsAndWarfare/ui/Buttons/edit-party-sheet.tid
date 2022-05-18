@@ -1,0 +1,29 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/Buttons/edit-party-sheet
+tags: $:/tags/ViewToolbar
+list-after: $:/core/ui/Buttons/edit
+description: <<kw.lookup ui/Buttons/EditPartySheet/Description>>
+
+\whitespace trim
+
+\define showButtonFilter()
+[<currentTiddler>tag{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/PartySheet}]
+\end
+
+\define actions()
+<$action-sendmessage
+    $message="tm-modal"
+    $param="$:/plugins/brockdyer/kingdoms-and-warfare/ui/Modals/edit-party-sheet"
+    partySheet=<<currentTiddler>>
+/>
+\end
+
+<$wikify name="text" text=<<kw.lookup ui/Buttons/EditPartySheet>> >
+    <$macrocall $name="kw.icon-button"
+        showButtonFilter=<<showButtonFilter>>
+        tooltip=<<text>>
+        actions=<<actions>>
+        aria=<<text>>
+        image="edit"
+        text=<<text>>
+    />
+</$wikify>

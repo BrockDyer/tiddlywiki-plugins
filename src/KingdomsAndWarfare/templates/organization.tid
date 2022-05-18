@@ -1,0 +1,35 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/templates/organization
+
+\define type-filter(type)
+    [enlist{$:/plugins/brockdyer/kingdoms-and-warfare/files/skills-and-defenses##$type$}]
+\end
+
+<table>
+    <tr>
+        <th colspan="1">Skills</th>
+        <th colspan="1">Defenses</th>
+    </tr>
+    <$set name="skills" filter=<<type-filter type: "skills" >> >
+    <$set name="defenses" filter=<<type-filter type: "defenses" >> >
+        <$macrocall $name="kw.org.statblock" skills=<<skills>> defenses=<<defenses>> />
+    </$set>
+    </$set>
+</table>
+
+<h3>Powers</h3>
+<<tabs tabsList: "[enlist{!!kw.org.powers}]" 
+    template: "$:/plugins/brockdyer/kingdoms-and-warfare/templates/tab-transclusion" 
+    state: "$:/temp/Organization/Powers">>
+
+<h3>Features</h3>
+<<tabs tabsList: "[enlist{!!kw.org.features}]" 
+    template: "$:/plugins/brockdyer/kingdoms-and-warfare/templates/tab-transclusion" 
+    state: "$:/temp/Organization/Features" >>
+
+<h3>Specializations</h3>
+<$set name="kw.template" value=<<kw.plugin-prefix templates/specialization>> >
+    <<tabs tabsList: "[tag<currentTiddler>]" 
+        template: "$:/plugins/brockdyer/kingdoms-and-warfare/templates/specialization-tab-transclusion" 
+        state: "$:/temp/Organization/Specializations"
+    >>
+</$set>

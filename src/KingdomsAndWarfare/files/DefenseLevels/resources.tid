@@ -1,0 +1,10 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/files/DefenseLevels/resources
+type: application/x-tiddler-dictionary
+
+3: Booming
+2: Abundant
+1: Surplus
+0: Normal
+-1: Low
+-2: Poor
+-3: Bankrupt

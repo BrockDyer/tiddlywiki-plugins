@@ -1,0 +1,7 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/ViewTemplate/party-officers
+tags: $:/tags/ViewTemplate
+list-after: $:/core/ui/ViewTemplate/body
+
+<$list filter="[<currentTiddler>tag{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/PartySheet}]" >
+    {{||$:/plugins/brockdyer/kingdoms-and-warfare/templates/party-officer}}
+</$list>

@@ -1,0 +1,30 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/Buttons/new-specialization
+tags: $:/plugins/brockdyer/kingdoms-and-warfare/ui/SideBar/factories
+description: <<kw.lookup ui/Buttons/NewSpecialization/Description>>
+
+\define actions()
+    <$set name="tags" filter="[{$:/temp/NewSpecialization!!organization}] [{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/Specialization}]" >
+        <$action-sendmessage
+            $message="tm-new-tiddler" 
+            tags=<<tags>>
+        >
+            <$action-navigate $to=<<createTiddler-title>> />
+        </$action-createtiddler>
+    </$set>
+\end
+
+<span>
+    <$set name="tooltip" value="New Specialization" >
+    <$button actions=<<actions>> tooltip=<<tooltip>> aria-label=<<tooltip>> class="tc-btn" >
+        {{$:/core/images/new-button}} <<tooltip>> 
+    </$button>
+    </$set>
+    <$set name="tooltip" value="Select Organization" >
+    <$select tiddler="$:/temp/NewSpecialization" field="organization" default=<<tooltip>> tooltip=<<tooltip>> >
+        <option disabled><<tooltip>></option>
+        <$list filter="[tag{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/Organization}]" >
+            <option><<currentTiddler>></option>
+        </$list>
+    </$select>
+    </$set>
+</span>

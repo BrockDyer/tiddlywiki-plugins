@@ -1,0 +1,47 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/Modals/edit-specialization
+subtitle: <<kw.lookup ui/Modals/EditSpecialization>>
+
+\define input-actions()
+    <$list filter="[<specialization>!has{$:/temp/EditSpecialization!!field}]" >
+        <$action-deletefield $field={{$:/temp/EditSpecialization!!field}} $tiddler=<<specialization>> />
+    </$list>
+\end
+
+<table>
+    <tr>
+        <th colspan="2">Edit Bonus Modifiers</th>
+    </tr>
+    <tr>
+        <td>
+            <$select tiddler="$:/temp/EditSpecialization" field="field" default="Pick Modifier" >
+                <option disabled>Pick Modifier</option>
+                <$set name="dict" filter="[<kw.plugin-prefix>addsuffix[files/skills-and-defenses]]" >
+                <$list variable="display" filter="skills defenses :map[<dict>getindex<currentTiddler>] +[enlist-input[]titlecase[]]" >
+                    <$set name="field" filter="[<display>lowercase[]addprefix[kw.org.]addsuffix[-bonus]]" >
+                        <option value=<<field>>><<display>></option>
+                    </$set>
+                </$list>
+                </$set>
+            </$select>
+        </td>
+        <td>
+            <$edit-text
+                tiddler=<<specialization>> 
+                field={{$:/temp/EditSpecialization!!field}}
+                placeholder="Edit Value"
+                inputActions=<<input-actions>>
+            />
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th>Edit Powers</th>
+        <td><$edit-text tiddler=<<specialization>> field="kw.org.powers" /></td>
+    </tr>
+    <tr>
+        <th>Edit Features</th>
+        <td><$edit-text tiddler=<<specialization>> field="kw.org.features" /></td>
+    </tr>
+</table>

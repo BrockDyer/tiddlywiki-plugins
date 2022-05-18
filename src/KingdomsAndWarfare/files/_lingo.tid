@@ -1,0 +1,17 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/files/_lingo
+type: application/x-tiddler-dictionary
+
+<!-- Modal Titles -->
+    ui/Modals/EditOrganization: Edit Organization
+    ui/Modals/EditPartySheet: Develop Organization
+    ui/Modals/EditSpecialization: Edit Organization Specialization
+
+<!-- Button Text and Descriptions -->
+    ui/Buttons/EditOrganization: Edit Organization
+    ui/Buttons/EditOrganization/Description: Edit the organizaton
+    ui/Buttons/EditPartySheet: Develop Organization
+    ui/Buttons/EditPartySheet/Description: Edit the party sheet
+    ui/Buttons/EditSpecialization: Edit Specialization
+    ui/Buttons/EditSpecialization/Description: Edit an organization's specialization
+    ui/Buttons/NewSpecialization: New Specialization
+    ui/Buttons/NewSpecialization/Description: Create a new specialization

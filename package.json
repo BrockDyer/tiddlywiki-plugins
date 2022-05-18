@@ -1,7 +1,7 @@
 {
-    "name": "tw-kingdoms-and-warfare",
+    "name": "dnd-plugins",
     "version": "0.0.1",
-    "description": "TW5 plugin for K&W content",
+    "description": "TW5 Plugins for D&D",
     "devDependencies": {
         "nodemon": "^2.0.7"
     },
@@ -10,7 +10,7 @@
         "patch": "./scripts/publish.sh patch",
         "minor": "./scripts/publish.sh minor",
         "publish": "./scripts/publish.sh major",
-        "dev": "nodemon -e tid,multids,js,info --watch src/ --exec ./scripts/dev.sh"
+        "dev": "nodemon -e tid,multids,js,info --watch src/ --watch docs/ --exec ./scripts/dev.sh"
     },
     "author": "Brock Dyer <bld4524@rit.edu>",
     "license": "MIT",

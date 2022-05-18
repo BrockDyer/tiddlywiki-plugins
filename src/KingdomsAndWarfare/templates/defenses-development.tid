@@ -1,0 +1,7 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/templates/defenses-development
+max-dev-points: 14
+development-type: defenses
+hidden-indices: 6 8 10 12 13
+value-tiddler: $:/plugins/brockdyer/kingdoms-and-warfare/files/DevelopmentPoints/defenses
+
+{{||$:/plugins/brockdyer/kingdoms-and-warfare/templates/development-points}}

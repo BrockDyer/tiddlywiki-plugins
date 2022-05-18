@@ -1,0 +1,35 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/Buttons/begin-intrigue
+tags: $:/tags/ViewToolbar
+list-after: $:/core/ui/Buttons/edit
+
+\whitespace trim
+
+\define showButtonFilter()
+[<currentTiddler>tag{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/PartySheet}]
+\end
+
+\define actions()
+<$set name="intrigueTag" filter="[enlist{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/Intrigue}]" >
+    <$action-listops  $tiddler=<<currentTiddler>> $tags="+[toggle<intrigueTag>]" />
+    <$action-setmultiplefields $tiddler=<<currentTiddler>>
+        $fields="[<currentTiddler>fields[]prefix[kw.ps.dl]]"
+        $values="[<currentTiddler>fields[]prefix[kw.ps.dl]] :map[[0]]"
+    />
+    <$action-listops $tiddler=<<currentTiddler>> $field="kw.ps.officers.reactions" $filter="[[]]" />
+</$set>
+\end
+
+<$set name="tooltip" filter="[<currentTiddler>!tag{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/Intrigue}] :map[[Begin Intrigue]] ~[[Finish Intrigue]]" >
+<$wikify name="tooltip" text=<<tooltip>> >
+<$list filter=<<showButtonFilter>> >
+    <$button actions=<<actions>> tooltip=<<tooltip>> aria-label=<<tooltip>> class=<<tv-config-toolbar-class>>>
+        <$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+            {{$:/plugins/brockdyer/kingdoms-and-warfare/images/begin-intrigue}}
+        </$list>
+        <$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+            <span class="tc-btn-text"><$text text=<<tooltip>>/></span>
+        </$list>
+    </$button>
+</$list>
+</$wikify>
+</$set>

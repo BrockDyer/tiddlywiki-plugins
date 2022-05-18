@@ -1,6 +1,6 @@
 title: $:/plugins/brockdyer/kingdoms-and-warfare/styles
 tags: $:/tags/Stylesheet
-type: text/css
+border-color: black
 
 .party-sheet .svg-banner {
   font-size: 35px;
@@ -16,7 +16,7 @@ type: text/css
 }
 
 .party-sheet .defenses-text {
-    font-size: 30px;
+    font-size: 28px;
 }
 
 .party-sheet .skills-text {
@@ -45,4 +45,56 @@ type: text/css
 
 .party-sheet .power-option-text {
     font-size: 30px;
+}
+
+.dp-cell {
+    padding: 0px;
+}
+
+.dp-previous button {
+    cursor-events: none;
+    color: <<colour muted-foreground>>;
+}
+
+.dp-current {
+    border: 2px solid <<colour foreground>>;
+}
+
+.dp-base {
+    border: 2px dashed <<colour foreground>>;
+}
+
+.dev-points-btn {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.dev-points-hidden {
+    color: transparent !important;
+    user-select: none;
+}
+
+.arrow-up svg {
+    transform: scaleY(-1);
+}
+
+.officer-resources {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.officer-resources div {
+    margin: 7px;
+}
+
+.numeric-input {
+    width: 25%;
+}
+
+.numeric-input-table {
+    width: 50px;
 }

@@ -1,0 +1,29 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/Buttons/edit-specialization
+tags: $:/tags/ViewToolbar
+list-after: $:/core/ui/Buttons/edit
+description: <<kw.lookup ui/Buttons/EditSpecialization/Description>>
+
+\whitespace trim
+
+\define showButtonFilter()
+[<currentTiddler>tag{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/Specialization}]
+\end
+
+\define actions()
+<$action-sendmessage
+    $message="tm-modal"
+    $param=<<kw.plugin-prefix ui/Modals/edit-specialization>>
+    specialization=<<currentTiddler>>
+/>
+\end
+
+<$wikify name="text" text=<<kw.lookup ui/Buttons/EditSpecialization>> >
+    <$macrocall $name="kw.icon-button" 
+        showButtonFilter=<<showButtonFilter>>
+        actions=<<actions>>
+        tooltip=<<text>>
+        aria=<<text>>
+        image="edit"
+        text=<<text>>
+    />
+</$wikify>

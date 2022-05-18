@@ -1,0 +1,35 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/templates/specialization
+
+<table>
+    <tr>
+        <th colspan="100" >Skill and Defense Bonuses</th>
+    </tr>
+    <tr>
+        <$list filter="[<currentTiddler>fields[]suffix[-bonus]sort[]]" variable="field" >
+            <$set name="display" filter="[<field>removesuffix[-bonus]removeprefix[kw.org.]titlecase[]]" >
+            <$set name="value" filter="[<currentTiddler>get<field>]" >
+            <$set name="sign" filter="[<value>compare:number:gteq[0]] :map[[+]]" >
+                <td>
+                    <div style="font-weight: bold; display: inline-block;">
+                        <<display>>:
+                    </div>
+                    <div style="display: inline-block;">
+                        <<sign>><<value>>
+                    </div>
+                </td>
+            </$set>
+            </$set>
+            </$set>
+        </$list>
+    </tr>
+</table>
+
+<h3>Powers</h3>
+<<tabs tabsList: "[enlist{!!kw.org.powers}]"
+    template: "$:/plugins/brockdyer/kingdoms-and-warfare/templates/tab-transclusion"
+    state: "$:/temp/Specialization/Powers" >>
+
+<h3>Features</h3>
+<<tabs tabsList: "[enlist{!!kw.org.features}]"
+    template: "$:/plugins/brockdyer/kingdoms-and-warfare/templates/tab-transclusion"
+    state: "$:/temp/Specialization/Features" >>

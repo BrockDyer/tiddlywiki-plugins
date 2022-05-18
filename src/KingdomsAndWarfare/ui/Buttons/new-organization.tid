@@ -1,0 +1,20 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/Buttons/new-organization
+tags: $:/plugins/brockdyer/kingdoms-and-warfare/ui/SideBar/factories
+
+\define actions()
+    <$action-createtiddler $basetitle={{!!kw.fact.org.name}} 
+        tags={{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/Organization}}
+        kw.org.name={{!!kw.fact.org.name}} >
+        <$action-navigate $to=<<createTiddler-title>> />
+    </$action-createtiddler>
+\end
+
+<span>
+    <$set name="tooltip" value="New Organization" >
+    <$button actions=<<actions>> >
+        {{$:/core/images/new-button}} <<tooltip>>
+    </$button>
+    </$set>
+
+    <$edit-text field="kw.fact.org.name" placeholder="Organization Name" />
+</span>

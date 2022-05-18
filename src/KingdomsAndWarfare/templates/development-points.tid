@@ -1,0 +1,34 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/templates/development-points
+
+\define table-row(title)
+
+<$set name="basePoints" filter="[<actual>get[kw.ps.organization]] :map[enlist<currentTiddler>get[kw.org.base-$title$]]">
+<$set name="devPoints" filter="[<actual>get[kw.ps.$title$-points]]" >
+<$set name="maxDevPoints" filter="[<template>get[max-dev-points]]" >
+<$set name="valueTiddler" filter="[<template>get[value-tiddler]]" >
+<$set name="hiddenIndices" filter="[<template>get[hidden-indices]]" >
+    <$macrocall $name="kw.devpoints.generate-row" 
+        title="$title$" 
+        maxDevPoints=<<maxDevPoints>>
+        basePoints=<<basePoints>>
+        devPoints=<<devPoints>>
+        currentTiddler=<<actual>>
+        valueTiddler=<<valueTiddler>>
+        hiddenIndices=<<hiddenIndices>>
+        availablePoints=<<availablePoints>>
+    />
+</$set>
+</$set>
+</$set>
+</$set>
+</$set>
+\end
+
+<!-- Must set actual variables to its respective tiddler -->
+<$set name="template" value=<<currentTiddler>> >
+<table>
+    <$list filter="[<kw.plugin-prefix files/skills-and-defenses>getindex{!!development-type}enlist-input[]]" >
+        <$macrocall $name="table-row" title=<<currentTiddler>> />
+    </$list>
+</table>
+</$set>

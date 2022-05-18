@@ -1,0 +1,7 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/ViewTemplate/organization
+tags: $:/tags/ViewTemplate
+list-before: $:/core/ui/ViewTemplate/body
+
+<$list filter="[<currentTiddler>tag{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/Organization}]" >
+    {{||$:/plugins/brockdyer/kingdoms-and-warfare/templates/organization}}
+</$list>

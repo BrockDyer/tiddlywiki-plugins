@@ -1,0 +1,36 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/templates/defense-levels
+kw.dl.max: 3
+kw.dl.min: -3
+
+\define defense-select()
+    <$select tiddler=<<partySheet>> field=<<field>> default="0" >
+        <$list filter="[range<maxValue>,<minValue>]">
+            <$set name="file" filter="[<display>lowercase[]addprefix[DefenseLevels/]]" >
+                <option value=<<currentTiddler>> >
+                    <$macrocall $name="kw.lookup" key=<<currentTiddler>> file=<<file>> type="dict" />
+                    (<<currentTiddler>>)
+                </option>
+            </$set>
+        </$list>
+    </$select>
+\end
+
+<!-- "[<currentTiddler>fields[]prefix[kw.ps.dl]]" -->
+
+<table>
+    <tr>
+        <th colspan="4">Defense Levels</th>
+    </tr>
+    <$list filter="[<kw.plugin-prefix files/skills-and-defenses>getindex[defenses]enlist-input[]addprefix[kw.ps.dl.]]" variable="field" >
+        <$set name="display" filter="[<field>removeprefix[kw.ps.dl.]titlecase[]]" >
+            <tr>
+                <th><<display>></th>
+                <$set name="minValue" value={{$:/plugins/brockdyer/kingdoms-and-warfare/templates/defense-levels!!kw.dl.min}} >
+                <$set name="maxValue" value={{$:/plugins/brockdyer/kingdoms-and-warfare/templates/defense-levels!!kw.dl.max}} >
+                    <<defense-select>>
+                </$set>
+                </$set>
+            </tr>
+        </$set>
+    </$list>
+</table>

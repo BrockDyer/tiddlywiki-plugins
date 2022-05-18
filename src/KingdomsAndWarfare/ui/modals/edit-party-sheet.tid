@@ -1,1 +1,167 @@
-title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/modals/edit-party-sheet
+title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/Modals/edit-party-sheet
+subtitle: <<kw.lookup ui/Modals/EditPartySheet>>
+
+\define size-button(size, direction, disabled)
+    <$button set="$(partySheet)$!!kw.ps.size" setTo="$size$" class="$direction$" disabled="$disabled$" >
+        {{$:/plugins/brockdyer/kingdoms-and-warfare/images/arrow}}
+    </$button>
+\end
+
+\define increase-size()
+    <$set name="sizeUp" filter="[<size>add[1]]" >
+    <$set name="disabled" filter="[<sizeUp>compare:number:gt<maxSize>] :map[[yes]]" >
+        <$macrocall $name="size-button" disabled=<<disabled>> size=<<sizeUp>> direction="arrow-up" />
+    </$set>
+    </$set>
+\end
+
+\define decrease-size()
+    <$set name="sizeDown" filter="[<size>subtract[1]]" >
+    <$set name="disabled" filter="[<sizeDown>compare:number:lt<minSize>] :map[[yes]]" >
+        <$macrocall $name="size-button" disabled=<<disabled>> size=<<sizeDown>> direction="arrow-down" />
+    </$set>
+    </$set>
+\end
+
+\define reset-actions()
+    <$list filter="[<resetFields>enlist-input[]] +[addprefix[kw.ps.]]" variable="field" >
+        <$action-setfield $tiddler=<<partySheet>> $field=<<field>> $value="" />
+    </$list>
+\end
+
+\define reset()
+    <td>
+        <$button style="width: 100%" class="tc-btn" actions=<<reset-actions>>>
+            Reset
+            {{$:/core/images/delete-button}}
+        </$button>
+    </td>
+\end
+
+\define display-table(title, display, reset)
+    <table>
+        <tr>
+            <th>$title$</th>
+            <td>$display$</td>
+            $reset$
+        </tr>
+    </table>
+\end
+
+\define option-select(tempTiddler, field, optionFilter, updateFilter)
+    <$select tiddler="$tempTiddler$" field="$field$" >
+        <$list filter="$optionFilter$" >
+            <option><$view field="title" /></option>
+        </$list>
+    </$select>
+    <$button>
+        <$action-listops $tiddler=<<partySheet>>
+            $field="$field$"
+            $filter="$updateFilter$"
+        />
+        Click to save choice
+    </$button>
+\end
+
+\define choose-specialization()
+    <$set name="specialization" value={{$:/temp/specialization-select!!kw.ps.specialization}} >
+        <$macrocall $name="display-table"
+            title="Specialization"
+            display=<<option-select tempTiddler: "$:/temp/specialization-select"
+                field: "kw.ps.specialization"
+                optionFilter: "[<partySheet>get[kw.ps.organization]] :map[enlist<currentTiddler>] +[tagging[]]"
+                updateFilter: "[<specialization>]" >>
+        />
+        <blockquote class="tc-blockquote" >
+            <$set name="currentTiddler" value=<<specialization>> >
+                {{||$:/plugins/brockdyer/kingdoms-and-warfare/templates/specialization}}
+            </$set>
+        </blockquote>
+    </$set>
+\end
+
+\define choose-organization()
+    <$set name="organization" value={{$:/temp/organization-select!!kw.ps.organization}} >
+        <$macrocall $name="display-table"
+            title="Organization"
+            display=<<option-select tempTiddler: "$:/temp/organization-select"
+                field: "kw.ps.organization"
+                optionFilter: "[tag{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/Organization}]"
+                updateFilter: "[<organization>]" >> 
+        />
+        <blockquote class="tc-blockquote" >
+            <$set name="currentTiddler" value=<<organization>> >
+                {{||$:/plugins/brockdyer/kingdoms-and-warfare/templates/organization}}
+            </$set>
+        </blockquote>
+    </$set>
+\end
+
+\define selections(field)
+    <$set name="title" filter="[[$field$]removeprefix[kw.ps.]titlecase[]]" >
+        <$list filter="[<partySheet>get[$field$]] :map[enlist<currentTiddler>]" emptyMessage=<<select>> >
+            <$macrocall $name="display-table" 
+                title=<<title>>
+                display="""<$macrocall $name="kw.link-field" fieldValue=<<currentTiddler>> />"""
+                reset="""<$macrocall $name="reset" />"""
+            />
+        </$list>
+    </$set>
+\end
+
+<$set name="select" value=<<choose-organization>> >
+<$set name="resetFields" value="organization specialization" >
+    <$macrocall $name="selections" field="kw.ps.organization" />
+</$set>
+</$set>
+
+<$set name="select" value=<<choose-specialization>> >
+<$set name="resetFields" value="specialization" >
+    <$macrocall $name="selections" field="kw.ps.specialization" />
+</$set>
+</$set>
+
+<$list filter="[<partySheet>get[kw.ps.organization]]" >
+
+    <$set name="size" filter="[<partySheet>get[kw.ps.size]] ~[[0]]" >
+        <$set name="minSize" filter="[<kw.plugin-prefix templates/party-sheet>get[kw.ps.min-size]]" >
+        <$set name="maxSize" filter="[<kw.plugin-prefix templates/party-sheet>get[kw.ps.max-size]]" >
+
+        <table>
+            <tr>
+                <th>Current Size</th>
+                <td><<size>></td>
+                <td><<increase-size>></td>
+                <td><<decrease-size>></td>
+            </tr>
+        </table>
+
+        </$set>
+        </$set>
+
+        <$set name="availablePoints" 
+            filter="[<partySheet>fields[]suffix[-points]] :map[<partySheet>get<currentTiddler>multiply[-1]] +[sum[]] [<size>multiply[8]] :reduce[add<accumulator>]" >
+            <table>
+                <tr>
+                    <th>Remaining Development Points</th>
+                    <td><<availablePoints>></td>
+                </tr>
+            </table>
+
+            <$set name="actual" value=<<partySheet>> >
+                {{$:/plugins/brockdyer/kingdoms-and-warfare/templates/skills-development}}
+                {{$:/plugins/brockdyer/kingdoms-and-warfare/templates/defenses-development}}
+            </$set>
+        </$set>
+    </$set>
+
+</$list>
+
+<table>
+    <tr>
+        <th>Edit Organization Officers</th>
+        <td>
+            <$edit-text tiddler=<<partySheet>> field="kw.ps.officers" placeholder="[[Officer Name]]" />
+        </td>
+    </tr>
+</table>

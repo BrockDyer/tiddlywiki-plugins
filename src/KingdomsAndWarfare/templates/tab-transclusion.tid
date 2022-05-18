@@ -1,0 +1,7 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/templates/tab-transclusion
+
+<$tiddler tiddler=<<currentTab>>>
+    <$list filter="[<currentTab>is[missing]]" emptyMessage="""<$transclude mode="block" />""">
+        <$link to=<<currentTab>> />
+    </$list>
+</$tiddler>

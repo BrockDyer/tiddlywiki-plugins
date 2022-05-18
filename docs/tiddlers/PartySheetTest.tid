@@ -1,0 +1,20 @@
+title: PartySheetTest
+tags: [[Party Sheet]]
+kw.ps.diplomacy-points: 0
+kw.ps.espionage-points: 0
+kw.ps.lore-points: 0
+kw.ps.operations-points: 0
+kw.ps.communications-points: 0
+kw.ps.resolve-points: 0
+kw.ps.resources-points: 0
+kw.ps.size: 1
+kw.ps.organization: [[Underworld Syndicate]]
+kw.ps.specialization:
+kw.ps.dl.communications: 0
+kw.ps.dl.resolve: 0
+kw.ps.dl.resources: 0
+kw.ps.officers: Aviendha [[Po Ren]] Ovlorg Calla Urreek Boblin
+kw.ps.officers.reactions:
+kw.ps.officers.power-dice:
+
+<!-- {{||$:/plugins/brockdyer/kingdoms-and-warfare/templates/defense-levels}} -->

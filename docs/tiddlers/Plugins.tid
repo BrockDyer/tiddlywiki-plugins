@@ -1,0 +1,14 @@
+title: Plugins
+
+\define transcludePlugin()
+    {{$(plugin)$||$:/core/ui/Components/plugin-info}}
+\end
+
+<!-- {{$:/plugins/benwebber/dnd||$:/core/ui/Components/plugin-info}} -->
+
+<$list filter="[prefix[$:/plugins/brockdyer/]!is[shadow]]">
+    <!-- <<currentTiddler>> -->
+    <$set name="plugin" value=<<currentTiddler>> >
+        <<transcludePlugin>>
+    </$set>
+</$list>
