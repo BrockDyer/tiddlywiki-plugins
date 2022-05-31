@@ -11,10 +11,12 @@ list-after: $:/core/ui/Buttons/edit
 \define actions()
 <$set name="intrigueTag" filter="[enlist{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/Intrigue}]" >
     <$action-listops  $tiddler=<<currentTiddler>> $tags="+[toggle<intrigueTag>]" />
-    <$action-setmultiplefields $tiddler=<<currentTiddler>>
-        $fields="[<currentTiddler>fields[]prefix[kw.ps.dl]]"
-        $values="[<currentTiddler>fields[]prefix[kw.ps.dl]] :map[[0]]"
-    />
+    <$set name="filter" value="kw.ps.domain-turn [<currentTiddler>fields[]prefix[kw.ps.dl]]" >
+        <$action-setmultiplefields $tiddler=<<currentTiddler>>
+            $fields=<<filter>>
+            $values="[subfilter<filter>] :map[[0]]"
+        />
+    </$set>
     <$action-listops $tiddler=<<currentTiddler>> $field="kw.ps.officers.reactions" $filter="[[]]" />
 </$set>
 \end

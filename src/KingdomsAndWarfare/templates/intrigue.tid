@@ -1,0 +1,23 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/templates/intrigue
+
+\define turn-button(turn, direction)
+    <$button set="!!kw.ps.domain-turn" setTo="$turn$" class="$direction$" >
+        <!-- Next Turn -->
+        {{$:/plugins/brockdyer/kingdoms-and-warfare/images/arrow}}
+    </$button>
+\end
+
+\define increase-turn()
+    <$set name="sizeUp" filter="[<turn>add[1]]" >
+        <$macrocall $name="turn-button" turn=<<sizeUp>> direction="arrow-up" />
+    </$set>
+\end
+
+<table>
+    <tr>
+        <th>Domain Turn</th>
+        <$set name="turn" filter="[{!!kw.ps.domain-turn}!is[blank]] ~[[0]]" >
+            <td>#<<turn>><<increase-turn>></td>
+        </$set>
+    </tr>
+</table>

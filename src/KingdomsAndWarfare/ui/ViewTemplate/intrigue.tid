@@ -1,0 +1,10 @@
+title: $:/plugins/brockdyer/kingdoms-and-warfare/ui/ViewTemplate/intrigue
+tags: $:/tags/ViewTemplate
+list-before: $:/plugins/brockdyer/kingdoms-and-warfare/ui/ViewTemplate/party-sheet
+
+<$list filter="[<currentTiddler>tag{$:/plugins/brockdyer/kingdoms-and-warfare/config/Tags/Intrigue}]" >
+    <div style="display: flex; flex-align: center">
+        <div style="flex: 1; margin: 0 1%;">{{||$:/plugins/brockdyer/kingdoms-and-warfare/templates/defense-levels}}</div>
+        <div style="flex: 1; margin: 0 1%;">{{||$:/plugins/brockdyer/kingdoms-and-warfare/templates/intrigue}}</div>
+    </div>
+</$list>

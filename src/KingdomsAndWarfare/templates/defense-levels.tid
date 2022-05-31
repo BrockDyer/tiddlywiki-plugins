@@ -15,8 +15,6 @@ kw.dl.min: -3
     </$select>
 \end
 
-<!-- "[<currentTiddler>fields[]prefix[kw.ps.dl]]" -->
-
 <table>
     <tr>
         <th colspan="4">Defense Levels</th>
