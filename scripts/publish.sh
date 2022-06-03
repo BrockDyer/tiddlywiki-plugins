@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Stash changes and switch to main
+echo "Stashing changes in working directory."
+git stash
+
+git checkout main
+
 # Build
 ./scripts/build.sh
 
@@ -11,11 +17,7 @@ version="$1"
 npm version "$version" --no-commit-hooks --no-git-tag-version
 version=$(grep version package.json | sed 's/.*"version": "\(.*\)".*/\1/')
 
-# Publish to GitHub.
-echo "Stashing changes in working directory."
-git stash
-
-git checkout gh-pages
+git add package.json
 git add index.html
 git commit -m "Publish plugins v$version"
 git push
