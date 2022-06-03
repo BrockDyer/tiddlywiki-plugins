@@ -85,13 +85,6 @@ function generateCell(tiddler, valueTiddler, field, value, idx, hidden, disabled
             previous += "<td class=\"dp-cell dp-previous " + baseClass + "\">" + gc(i) + "</td>";
         }
 
-        if (devPoints > 0) {
-            console.log({
-                field: field,
-                devPoints: devPoints,
-                basePoints: basePoints
-            });
-        }
         // Current selection
         var current = (basePoints + devPoints > 0) ? "<td class=\"dp-cell dp-current\">" + gc(basePoints + devPoints) + "</td>" : "";
 
