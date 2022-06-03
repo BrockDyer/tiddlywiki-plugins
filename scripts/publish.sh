@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Build
+./scripts/build.sh
+
 # [<newversion> | major | minor | patch | premajor | preminor 
 # | prepatch | prerelease | from-git]
 version="$1"
