@@ -1,9 +1,7 @@
 #!/bin/bash
+# Assumes the build dir is already prepared
 
 build=".build"
-
-# Prepare the build environments
-./scripts/prepare.sh "$build"
 
 # .build/
 # ├─ plugins/
