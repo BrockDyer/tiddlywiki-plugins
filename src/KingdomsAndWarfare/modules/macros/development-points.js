@@ -47,17 +47,6 @@ function generateCell(tiddler, valueTiddler, field, value, idx, hidden, disabled
         basePoints = parseInt(basePoints);
         devPoints = parseInt(devPoints);
 
-        // console.log({
-        //     title: title,
-        //     maxDevPoints: maxDevPoints,
-        //     basePoints: basePoints,
-        //     devPoints: devPoints,
-        //     currentTiddler: currentTiddler,
-        //     valueTiddler: valueTiddler,
-        //     hiddenIndices: hiddenIndices,
-        //     availablePoints: availablePoints
-        // });
-
         const gc = function(idx, disabled=false) {
             var hidden = hiddenIndices.includes(idx.toString());
             if (idx - (basePoints + devPoints) > availablePoints) {

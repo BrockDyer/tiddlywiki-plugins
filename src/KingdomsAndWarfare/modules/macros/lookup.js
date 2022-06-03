@@ -27,7 +27,7 @@ Macro to perform value lookups.
                 output = "{{" + prefix + file + "##" + key + "}}";
                 break;
         }
-        // console.log(output);
+
         return output;
     };
 })();
