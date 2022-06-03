@@ -41,11 +41,6 @@ function generateCell(i, data, prefix, file) {
     exports.run = function(skills, defenses) {
         skills = skills.split(" ");
         defenses = defenses.split(" ");
-        
-        // console.log({
-        //     skills: skills,
-        //     defenses: defenses
-        // });
 
         const prefix = "kw.org.base-"
         var i = 0;
